@@ -62,7 +62,7 @@ public class IntCalculatorTest {
     }
 
     @Test
-    public void addSillyFailure() {
+    public void addSillyNotFailure() {
         IntCalculator calc = IntCalculator.getInstance();
         assertNotNull(calc);
         assertNotEquals(3, calc.add(2, 2));
