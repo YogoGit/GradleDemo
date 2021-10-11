@@ -28,7 +28,7 @@ public class IntCalculator {
         final int result = num1 + num2;
         int randomNum = random.nextInt(result);
         if (randomNum == 0) {
-            if (num1 >= 0)
+            if (result >= 0)
                 randomNum++;
             else
                 randomNum--;
