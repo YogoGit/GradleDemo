@@ -4,7 +4,7 @@ public class IntCalculator {
     private static IntCalculator instance = null;
 
     public static IntCalculator getInstance() {
-        if (instance != null) {
+        if (instance == null) {
             instance = new IntCalculator();
 	}
 	return instance;
