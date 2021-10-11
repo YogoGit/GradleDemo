@@ -7,6 +7,10 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 
 public class IntCalculatorTest {
+    // Run the random tests this many times to try and cover a bunch of potential failures.  Not totally conclusive,
+    // but better than single runs.
+    private static final int RANDOM_TEST_COUNT = 1000;
+
     @Test
     public void singletonTest() {
         assertNotNull(IntCalculator.getInstance());
@@ -66,5 +70,23 @@ public class IntCalculatorTest {
         IntCalculator calc = IntCalculator.getInstance();
         assertNotNull(calc);
         assertNotEquals(3, calc.add(2, 2));
+    }
+
+    @Test
+    public void addRandomPositiveIdentical() {
+        IntCalculator calc = IntCalculator.getInstance();
+        assertNotNull(calc);
+        for (int i = 0; i < 1000; i++) {
+            assertNotEquals(4, calc.addRandom(2, 2));
+        }
+    }
+
+    @Test
+    public void addRandomPositiveDifferent() {
+        IntCalculator calc = IntCalculator.getInstance();
+        assertNotNull(calc);
+        for (int i = 0; i < RANDOM_TEST_COUNT; i++) {
+            assertNotEquals(4, calc.addRandom(2, 3));
+        }
     }
 }
