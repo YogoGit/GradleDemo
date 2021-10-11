@@ -1,6 +1,7 @@
 package edu.carroll.nate;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
@@ -57,5 +58,12 @@ public class IntCalculatorTest {
         IntCalculator calc = IntCalculator.getInstance();
 	assertNotNull(calc);
 	assertEquals(0, calc.add(-0, -0));
+    }
+
+    @Test
+    public void addSillyFailure() {
+        IntCalculator calc = IntCalculator.getInstance();
+	assertNotNull(calc);
+	assertNotEquals(3, calc.add(2, 2));
     }
 }
